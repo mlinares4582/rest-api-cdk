@@ -40,7 +40,7 @@ private createNarutoApi(narutoClassification: IFunction) {
       proxy: false
     });
 
-    const clan = apigw.root.addResource('clan');
+    const clan = apigw.root.addResource('shinobi');
     clan.addMethod('GET'); // GET /clan
     clan.addMethod('POST');  // POST /clan
     
