@@ -13,9 +13,6 @@ export class DynamoDB extends Construct {
         
       }
 
-  
-
-
 private createNarutoTable(){
     const narutoTable = new Table(this, 'narutoTable', {
         partitionKey: { name: 'id', type: AttributeType.STRING },
