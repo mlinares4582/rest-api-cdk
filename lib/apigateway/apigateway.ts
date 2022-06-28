@@ -39,15 +39,16 @@ private createNarutoApi(narutoClassification: IFunction) {
       handler: narutoClassification,
       proxy: false
     });
+    apigw.root.addMethod('GET');
 
-    const clan = apigw.root.addResource('shinobi');
-    clan.addMethod('GET'); // GET /clan
-    clan.addMethod('POST');  // POST /clan
+    const naruto = apigw.root.addResource('naruto');
+    naruto.addMethod('GET'); // GET /clan
+    // shinobi.addMethod('POST');  // POST /clan
     
-    const singleShinobi = clan.addResource('{id}'); // Shinobi/{id}
-    singleShinobi.addMethod('GET'); // GET /Shinobi/{id}
-    singleShinobi.addMethod('PUT'); // PUT /Shinobi/{id}
-    singleShinobi.addMethod('DELETE'); // DELETE /Shinobi/{id}
+    // const singleShinobi = shinobi.addResource('{id}'); // Shinobi/{id}
+    // singleShinobi.addMethod('GET'); // GET /Shinobi/{id}
+    // singleShinobi.addMethod('PUT'); // PUT /Shinobi/{id}
+    // singleShinobi.addMethod('DELETE'); // DELETE /Shinobi/{id}
   }
 
    }

@@ -25,18 +25,18 @@ export class Lambdas extends Construct{
 private createNarutoFunction(narutoTable: ITable): NodejsFunction{
     
     const narutoLambda = new NodejsFunction(this,'NarutoLambdaNodeFunction',{
-        entry: join(__dirname,'/../../src/naruto/index.js'),
-        functionName: "NarutoLambdaFunction",
+        entry: join(__dirname, '/../../src/naruto/index.js'),
+        functionName: "narutoLambda",
         bundling:{
         externalModules:[
             'aws-sdk'
         ]
         },
         environment:{
-        PRIMARY_KEY : 'id',
+        PRIMARY_KEY : 'shinobiId',
         TABLE_NAME: narutoTable.tableName
         }
-    })
+      });
 
     narutoTable.grantReadWriteData(narutoLambda)
 
@@ -44,3 +44,7 @@ private createNarutoFunction(narutoTable: ITable): NodejsFunction{
     return narutoLambda;
     }
 }
+function __dirname(__dirname: any, arg1: string): string | undefined {
+    throw new Error('Function not implemented.');
+}
+
