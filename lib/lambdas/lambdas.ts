@@ -3,8 +3,6 @@ import { Construct } from "constructs";
 import { NodejsFunction, NodejsFunctionProps } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { join } from 'path';
 
-
-
 interface LambdasProps {
     
     narutoTable: ITable;
@@ -44,7 +42,5 @@ private createNarutoFunction(narutoTable: ITable): NodejsFunction{
     return narutoLambda;
     }
 }
-function __dirname(__dirname: any, arg1: string): string | undefined {
-    throw new Error('Function not implemented.');
-}
+
 
