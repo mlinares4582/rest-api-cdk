@@ -23,7 +23,8 @@ export class Lambdas extends Construct{
 private createNarutoFunction(narutoTable: ITable): NodejsFunction{
     
     const narutoLambda = new NodejsFunction(this,'NarutoLambdaNodeFunction',{
-        entry: join(__dirname, '/../../src/naruto/index.js'),
+        // entry: join(__dirname, '/../../src/naruto/index.js'),
+        entry: join(__dirname, '/../../src/naruto/index.ts'),
         functionName: "narutoLambda",
         bundling:{
         externalModules:[
@@ -42,5 +43,7 @@ private createNarutoFunction(narutoTable: ITable): NodejsFunction{
     return narutoLambda;
     }
 }
+
+
 
 

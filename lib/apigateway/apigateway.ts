@@ -23,16 +23,7 @@ export class ApiGateway extends Construct {
 
 
 private createNarutoApi(narutoClassification: IFunction) {
-    // Product microservices api gateway
-    // root name = product
-
-    // GET /product
-    // POST /product
-
-    // Single product with id parameter
-    // GET /product/{id}
-    // PUT /product/{id}
-    // DELETE /product/{id}
+    
 
     const apigw = new LambdaRestApi(this, 'narutoApi', {
       restApiName: 'Naruto Classification',
@@ -43,12 +34,12 @@ private createNarutoApi(narutoClassification: IFunction) {
 
     const naruto = apigw.root.addResource('naruto');
     naruto.addMethod('GET'); // GET /clan
-    // shinobi.addMethod('POST');  // POST /clan
+    naruto.addMethod('POST');  // POST /clan
     
-    // const singleShinobi = shinobi.addResource('{id}'); // Shinobi/{id}
-    // singleShinobi.addMethod('GET'); // GET /Shinobi/{id}
-    // singleShinobi.addMethod('PUT'); // PUT /Shinobi/{id}
-    // singleShinobi.addMethod('DELETE'); // DELETE /Shinobi/{id}
+    const singleShinobi = naruto.addResource('{id}'); // Shinobi/{id}
+    singleShinobi.addMethod('GET'); // GET /Shinobi/{id}
+    singleShinobi.addMethod('PUT'); // PUT /Shinobi/{id}
+    singleShinobi.addMethod('DELETE'); // DELETE /Shinobi/{id}
   }
 
    }
